@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
 import { Award, MapPin, Calendar } from 'lucide-react';
+import { Gift } from 'lucide-react';
 
 export function RibbonHero() {
   const [scrolled, setScrolled] = useState(false);
@@ -46,12 +47,20 @@ export function RibbonHero() {
         className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-background"
       >
         {/* Title that appears before ribbon unties */}
-        <h1 className={cn(
-          "z-20 text-4xl md:text-6xl lg:text-8xl font-headline text-primary-foreground text-center drop-shadow-lg transition-opacity duration-500",
-          scrolled ? 'opacity-0' : 'opacity-100'
+        <div className={cn(
+          "z-20 text-center text-primary-foreground drop-shadow-lg transition-all duration-500 flex flex-col items-center",
+          scrolled ? 'opacity-0 scale-50' : 'opacity-100 scale-100'
         )}>
-            CSI Inauguration 2025
-        </h1>
+           <div className={cn(
+             "transition-transform duration-1000 ease-in-out",
+             scrolled ? 'rotate-45' : 'rotate-0'
+           )}>
+            <Gift className="w-24 h-24 md:w-32 md:h-32 lg:w-48 lg:h-48" />
+           </div>
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-headline mt-4">
+              CSI Inauguration 2025
+          </h1>
+        </div>
         
         {/* Full-screen ribbon background with shine */}
         <div className={cn(
