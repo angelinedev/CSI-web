@@ -102,7 +102,7 @@ export function RibbonHero() {
       
       {/* Full-screen ribbon background with shine */}
       <div className={cn(
-        "absolute inset-0 bg-primary z-10 transition-opacity duration-700",
+        "absolute inset-0 bg-gradient-to-br from-blue-500 to-indigo-800 z-10 transition-opacity duration-700",
         scrolled ? 'opacity-0' : 'opacity-100'
       )}>
          <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine" />
@@ -110,13 +110,17 @@ export function RibbonHero() {
 
       {/* Ribbon halves that split apart on scroll */}
       <div className={cn(
-        "absolute h-full w-1/2 top-0 left-0 bg-primary z-30 transition-transform duration-1000 ease-in-out",
+        "absolute h-full w-1/2 top-0 left-0 bg-gradient-to-r from-blue-500 to-indigo-800 z-30 transition-transform duration-1000 ease-in-out overflow-hidden",
         scrolled ? "-translate-x-full" : "translate-x-0"
-      )} />
+      )}>
+        <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine" />
+      </div>
       <div className={cn(
-        "absolute h-full w-1/2 top-0 right-0 bg-primary z-30 transition-transform duration-1000 ease-in-out",
+        "absolute h-full w-1/2 top-0 right-0 bg-gradient-to-r from-indigo-800 to-blue-500 z-30 transition-transform duration-1000 ease-in-out overflow-hidden",
         scrolled ? "translate-x-full" : "translate-x-0"
-      )} />
+      )}>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine" />
+      </div>
     </section>
   );
 }
