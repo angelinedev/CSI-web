@@ -14,9 +14,9 @@ export function Contact() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
           <div className="flex flex-col gap-8">
-            <InfoItem icon={Mail} title="Email Us" text="contact@csiclub.edu" />
-            <InfoItem icon={Phone} title="Call Us" text="+1 (234) 567-890" />
-            <InfoItem icon={MapPin} title="Visit Us" text="Tech University, 123 Innovation Drive, Techville" />
+            <InfoItem icon={Mail} title="Email Us" text="csijce@gmail.com" />
+            <InfoItem icon={Phone} title="Call Us" text="1234567890" />
+            <InfoItem icon={MapPin} title="Visit Us" text="2nd floor cse department faculty room" />
           </div>
           <Card className="shadow-lg">
             <CardHeader>

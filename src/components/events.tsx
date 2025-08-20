@@ -4,17 +4,17 @@ import Image from 'next/image';
 
 const events = [
   {
-    title: 'Tech Talk: The Future of AI',
+    title: 'Event 1',
     image: 'https://placehold.co/600x400.png',
     hint: 'technology conference',
   },
   {
-    title: 'Workshop: Modern Web Development',
+    title: 'Event 2',
     image: 'https://placehold.co/600x400.png',
     hint: 'coding workshop',
   },
   {
-    title: 'CSI Annual Hackathon 2025',
+    title: 'Event 3',
     image: 'https://placehold.co/600x400.png',
     hint: 'students coding',
   },
