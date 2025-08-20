@@ -63,21 +63,21 @@ export function RibbonHero() {
                 <CardContent className="p-6 flex flex-col items-center gap-4">
                   <Award className="w-12 h-12 text-accent" />
                   <h3 className="text-xl font-headline text-foreground">Chief Guest</h3>
-                  <p className="text-muted-foreground">Dr. Evelyn Reed</p>
+                  <p className="text-muted-foreground">Dr. M. Senthil Kumar, Chairman, CSI-Kancheepuram Chapter</p>
                 </CardContent>
               </Card>
               <Card className="hover:shadow-xl transition-shadow duration-300 bg-card/80 backdrop-blur-sm">
                 <CardContent className="p-6 flex flex-col items-center gap-4">
                   <MapPin className="w-12 h-12 text-accent" />
                   <h3 className="text-xl font-headline text-foreground">Venue</h3>
-                  <p className="text-muted-foreground">Main Auditorium</p>
+                  <p className="text-muted-foreground">2nd floor auditorium</p>
                 </CardContent>
               </Card>
               <Card className="hover:shadow-xl transition-shadow duration-300 bg-card/80 backdrop-blur-sm">
                 <CardContent className="p-6 flex flex-col items-center gap-4">
                   <Calendar className="w-12 h-12 text-accent" />
                   <h3 className="text-xl font-headline text-foreground">Date & Time</h3>
-                  <p className="text-muted-foreground">Oct 25, 2025 - 10:00 AM</p>
+                  <p className="text-muted-foreground">August 26th, 1:00 PM - 3:30 PM</p>
                 </CardContent>
               </Card>
             </div>
