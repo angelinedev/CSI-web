@@ -81,7 +81,7 @@ export function RibbonHero() {
                 </CardContent>
               </Card>
             </div>
-            <p className="mt-12 text-2xl font-headline text-primary">Stay Tuned for the Grand Opening!</p>
+            <p className="mt-12 text-lg md:text-2xl font-headline text-primary">Stay Tuned for the Grand Opening!</p>
       </div>
 
       {/* Title that appears before ribbon unties */}
