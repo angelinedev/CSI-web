@@ -54,7 +54,7 @@ export function RibbonHero() {
     >
       {/* Inauguration details that are revealed */}
       <div className={cn(
-          "container mx-auto px-4 py-16 md:py-24 text-center transition-all duration-1000 ease-out absolute z-0",
+          "container mx-auto px-4 text-center transition-all duration-1000 ease-out absolute z-0 pt-24", // Added pt-24
           scrolled ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
       )}>
             <h2 className="text-4xl md:text-5xl font-headline text-primary mb-12">Inauguration Details</h2>
