@@ -40,12 +40,12 @@ export function Header() {
           <University className="h-6 w-6 text-primary" />
           <span className={cn(
             "font-headline text-lg",
-            isScrolled ? "text-primary-foreground" : "text-primary"
+            isScrolled ? "text-foreground" : "text-primary-foreground"
             )}>CSI</span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-1 bg-background/80 backdrop-blur-sm px-4 py-2 rounded-full border border-transparent">
+        <nav className="hidden md:flex gap-1 bg-secondary/30 backdrop-blur-sm px-4 py-2 rounded-full border border-border/60">
           {navLinks.map((link) => (
             <Link
               key={link.href}
