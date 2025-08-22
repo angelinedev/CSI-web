@@ -23,13 +23,13 @@ export function RibbonHero() {
           Inauguration 2025
         </p>
 
-        <div className="flex justify-center gap-4 mb-16 animate-fade-in-up" style={{animationDelay: '400ms'}}>
-           <ScrollAnimator animationClassName="animate-fade-in-up group">
+        <div className="flex justify-center gap-4 mb-16">
+           <ScrollAnimator animationClassName="animate-fade-in-up group" delay={400}>
             <Button size="lg" asChild>
               <a href="#events">View Events</a>
             </Button>
           </ScrollAnimator>
-           <ScrollAnimator animationClassName="animate-fade-in-up group" delay={100}>
+           <ScrollAnimator animationClassName="animate-fade-in-up group" delay={500}>
             <Button size="lg" variant="outline" asChild>
               <a href="#contact">Contact Us</a>
             </Button>
@@ -37,7 +37,7 @@ export function RibbonHero() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-           <ScrollAnimator animationClassName="animate-fade-in-up group" delay={200}>
+           <ScrollAnimator animationClassName="animate-fade-in-up group" delay={600}>
             <Card className="bg-card/80 backdrop-blur-sm border-border/50 md:group-hover:border-primary/50 transition-all duration-500 ease-in-out md:group-hover:shadow-2xl md:group-hover:shadow-primary/10 transform md:group-hover:-translate-y-2">
               <CardContent className="p-6 flex flex-col items-center gap-4">
                 <div className="p-3 bg-primary/10 rounded-full"><Award className="w-8 h-8 text-primary" /></div>
@@ -46,7 +46,7 @@ export function RibbonHero() {
               </CardContent>
             </Card>
           </ScrollAnimator>
-           <ScrollAnimator animationClassName="animate-fade-in-up group" delay={300}>
+           <ScrollAnimator animationClassName="animate-fade-in-up group" delay={700}>
             <Card className="bg-card/80 backdrop-blur-sm border-border/50 md:group-hover:border-primary/50 transition-all duration-500 ease-in-out md:group-hover:shadow-2xl md:group-hover:shadow-primary/10 transform md:group-hover:-translate-y-2">
               <CardContent className="p-6 flex flex-col items-center gap-4">
                  <div className="p-3 bg-primary/10 rounded-full"><MapPin className="w-8 h-8 text-primary" /></div>
@@ -55,7 +55,7 @@ export function RibbonHero() {
               </CardContent>
             </Card>
           </ScrollAnimator>
-           <ScrollAnimator animationClassName="animate-fade-in-up group" delay={400}>
+           <ScrollAnimator animationClassName="animate-fade-in-up group" delay={800}>
             <Card className="bg-card/80 backdrop-blur-sm border-border/50 md:group-hover:border-primary/50 transition-all duration-500 ease-in-out md:group-hover:shadow-2xl md:group-hover:shadow-primary/10 transform md:group-hover:-translate-y-2">
               <CardContent className="p-6 flex flex-col items-center gap-4">
                 <div className="p-3 bg-primary/10 rounded-full"><Calendar className="w-8 h-8 text-primary" /></div>

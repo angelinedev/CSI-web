@@ -108,7 +108,7 @@ export default {
         'shine': 'shine 4s ease-in-out infinite',
         'tilt': 'tilt 10s infinite linear',
         'gradient-bg': 'gradient-bg 15s ease infinite',
-        'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
+        'fade-in-up': 'fade-in-up 0.7s ease-in-out forwards',
       },
     },
   },

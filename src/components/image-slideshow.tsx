@@ -21,7 +21,7 @@ export function ImageSlideshow({ images, className }: ImageSlideshowProps) {
   ]);
 
   return (
-    <div className={cn('overflow-hidden rounded-lg shadow-xl', className)} ref={emblaRef}>
+    <div className={cn('overflow-hidden rounded-lg shadow-xl max-w-2xl mx-auto', className)} ref={emblaRef}>
       <div className="flex">
         {images.map((image, index) => (
           <div className="relative flex-[0_0_100%] aspect-w-16 aspect-h-9" key={index}>
