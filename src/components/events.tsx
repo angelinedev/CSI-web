@@ -6,22 +6,22 @@ import { ScrollAnimator } from './scroll-animator';
 const events = [
   {
     title: 'Event 1',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://storage.googleapis.com/stedi-studio-assets/project-assets/csi-inaguration-2025/coming-soon.png',
     hint: 'coming soon',
   },
   {
     title: 'Event 2',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://storage.googleapis.com/stedi-studio-assets/project-assets/csi-inaguration-2025/coming-soon.png',
     hint: 'coming soon',
   },
   {
     title: 'Event 3',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://storage.googleapis.com/stedi-studio-assets/project-assets/csi-inaguration-2025/coming-soon.png',
     hint: 'coming soon',
   },
   {
     title: 'Event 4',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://storage.googleapis.com/stedi-studio-assets/project-assets/csi-inaguration-2025/coming-soon.png',
     hint: 'coming soon',
   },
 ];
