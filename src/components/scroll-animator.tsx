@@ -21,7 +21,6 @@ export function ScrollAnimator({
   const ref = useRef<HTMLDivElement>(null);
   const isVisible = useIsVisible(ref);
 
-  // Add the 'is-visible' class to the direct child if the component is visible.
   const child = React.Children.only(children) as React.ReactElement;
   const childWithClass = React.cloneElement(child, {
     className: cn(child.props.className, { 'is-visible': isVisible }),
