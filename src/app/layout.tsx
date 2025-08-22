@@ -7,6 +7,28 @@ export const metadata: Metadata = {
   description: 'Inauguration event for the CSI Student Chapter.',
 };
 
+const ParticleContainer = () => {
+  const particles = Array.from({ length: 30 });
+  return (
+    <div id="particle-container">
+      {particles.map((_, i) => (
+        <div
+          key={i}
+          className="particle"
+          style={{
+            backgroundColor: `hsl(${Math.random() * 50 + 180}, 70%, 60%)`,
+            left: `${Math.random() * 100}vw`,
+            top: `${Math.random() * 100}vh`,
+            width: `${Math.random() * 3 + 1}px`,
+            height: `${Math.random() * 3 + 1}px`,
+            animation: `particle-animation-${(i % 30) + 1} ${Math.random() * 20 + 10}s alternate infinite`,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,7 +43,10 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        {children}
+        <ParticleContainer />
+        <div className="relative z-10">
+          {children}
+        </div>
         <Toaster />
       </body>
     </html>
