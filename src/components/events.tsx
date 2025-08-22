@@ -7,22 +7,22 @@ const events = [
   {
     title: 'Event 1',
     image: 'https://placehold.co/600x400.png',
-    hint: 'technology conference',
+    hint: 'coming soon',
   },
   {
     title: 'Event 2',
     image: 'https://placehold.co/600x400.png',
-    hint: 'coding workshop',
+    hint: 'coming soon',
   },
   {
     title: 'Event 3',
     image: 'https://placehold.co/600x400.png',
-    hint: 'students coding',
+    hint: 'coming soon',
   },
   {
     title: 'Event 4',
     image: 'https://placehold.co/600x400.png',
-    hint: 'hackathon event',
+    hint: 'coming soon',
   },
 ];
 
