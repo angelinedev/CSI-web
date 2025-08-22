@@ -34,24 +34,24 @@ export function Header() {
   return (
     <header className={cn(
       "sticky top-0 z-50 w-full transition-all duration-300",
-      isScrolled ? "border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60" : "bg-transparent"
+      isScrolled ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60" : "bg-transparent"
     )}>
       <div className="container flex h-20 items-center justify-center relative">
         <Link href="/" className="absolute left-4 md:left-8 flex items-center gap-2 font-bold">
           <Logo className="h-10 w-10" />
           <span className={cn(
             "font-headline text-lg hidden sm:inline",
-            isScrolled ? "text-foreground" : "text-primary-foreground"
+            "text-foreground"
             )}>CSI</span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-2 bg-secondary/30 backdrop-blur-sm px-4 py-2 shadow-lg">
+        <nav className="hidden md:flex items-center gap-2 px-4 py-2">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="group relative text-sm font-medium transition-colors duration-300 px-4 py-2"
+              className="group relative text-sm font-medium transition-colors duration-300 px-4 py-2 text-foreground/80 hover:text-foreground"
             >
               {link.label}
               <span className="absolute bottom-1 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
