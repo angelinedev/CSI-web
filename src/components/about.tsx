@@ -19,6 +19,8 @@ const coreMembers = [
 
 const executiveMember = { name: 'Sharan S', role: 'Executive Member- CSI', department: 'CSBS' };
 
+const studentCoordinator = { name: 'Mrs. Vanitha Sheba M', role: 'SBC-CSI' };
+
 const csiInfo = {
   title: 'About Computer Society of India',
   description:
@@ -107,6 +109,24 @@ export function About() {
             <p className="text-lg text-muted-foreground mt-2 max-w-2xl mx-auto">The driving force behind our club's success, dedicated to fostering a vibrant tech community.</p>
           </div>
         </ScrollAnimator>
+        
+        <div className="mt-16 flex justify-center mb-16">
+          <ScrollAnimator>
+            <div className="group relative text-center flex flex-col items-center p-6 rounded-lg transition-all duration-300 hover:bg-primary/10 hover:shadow-2xl hover:shadow-primary/20 w-full max-w-sm">
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
+              <div className="absolute -top-1/2 left-1/2 -translate-x-1/2 w-56 h-56 bg-primary/30 rounded-full blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-1000 animate-pulse"></div>
+              <Avatar className="w-40 h-40 border-4 border-primary/80 shadow-lg transition-transform duration-300 group-hover:scale-110">
+                <Image src="https://placehold.co/160x160.png" alt={studentCoordinator.name} width={160} height={160} data-ai-hint="professional portrait" />
+                <AvatarFallback>{studentCoordinator.name.charAt(0)}</AvatarFallback>
+              </Avatar>
+              <div className="mt-6 z-10">
+                <h3 className="text-2xl font-headline font-semibold">{studentCoordinator.name}</h3>
+                <p className="text-primary text-lg">{studentCoordinator.role}</p>
+              </div>
+            </div>
+          </ScrollAnimator>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {coreMembers.map((member, index) => (
             <ScrollAnimator key={member.name} delay={index * 100}>

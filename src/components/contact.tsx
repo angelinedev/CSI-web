@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, User, Building } from 'lucide-react';
 
 export function Contact() {
   return (
@@ -14,9 +14,10 @@ export function Contact() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
           <div className="flex flex-col gap-8">
+            <InfoItem icon={User} title="President" text="Mahendra U (+91 12345 67890)" />
+            <InfoItem icon={User} title="Student Branch Counselor" text="Mrs. Vanitha Sheba M" />
             <InfoItem icon={Mail} title="Email Us" text="csijce@gmail.com" />
-            <InfoItem icon={Phone} title="Call Us" text="1234567890" />
-            <InfoItem icon={MapPin} title="Visit Us" text="2nd floor cse department faculty room" />
+            <InfoItem icon={Building} title="Visit Us" text="2nd floor cse department faculty room" />
           </div>
           <Card className="shadow-lg">
             <CardHeader>
