@@ -46,14 +46,15 @@ export function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-2 bg-secondary/30 backdrop-blur-sm px-4 py-2 rounded-full border border-border/60 shadow-lg">
+        <nav className="hidden md:flex items-center gap-2 bg-secondary/30 backdrop-blur-sm px-4 py-2 shadow-lg">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium transition-all duration-300 hover:text-primary-foreground hover:bg-primary/80 px-4 py-2 rounded-full"
+              className="group relative text-sm font-medium transition-colors duration-300 px-4 py-2"
             >
               {link.label}
+              <span className="absolute bottom-1 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
             </Link>
           ))}
         </nav>
