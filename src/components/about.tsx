@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ImageSlideshow } from '@/components/image-slideshow';
 import { Counter } from '@/components/counter';
 import { Building, Award, Users, Info } from 'lucide-react';
+import { ScrollAnimator } from './scroll-animator';
 
 const coreMembers = [
   { name: 'Mahendra U', role: 'President-CSI', department: 'CSE' },
@@ -58,82 +59,95 @@ export function About() {
   return (
     <section id="about" className="w-full py-16 md:py-24 bg-secondary/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-headline text-primary mb-4">{csiInfo.title}</h2>
-          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">{csiInfo.description}</p>
-        </div>
+        <ScrollAnimator>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-headline text-primary mb-4">{csiInfo.title}</h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto">{csiInfo.description}</p>
+          </div>
+        </ScrollAnimator>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {csiInfo.cards.map((card, index) => (
-            <div key={index} className="bg-card/80 p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
-              <div className="p-4 bg-primary/10 rounded-full mb-4">
-                <card.icon className="w-8 h-8 text-primary" />
+             <ScrollAnimator key={index} delay={index * 100}>
+              <div className="bg-card/80 p-6 rounded-lg shadow-lg flex flex-col items-center text-center h-full">
+                <div className="p-4 bg-primary/10 rounded-full mb-4">
+                  <card.icon className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-headline text-foreground mb-2">{card.title}</h3>
+                <p className="text-muted-foreground text-sm">{card.text}</p>
               </div>
-              <h3 className="text-xl font-headline text-foreground mb-2">{card.title}</h3>
-              <p className="text-muted-foreground text-sm">{card.text}</p>
-            </div>
+            </ScrollAnimator>
           ))}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 max-w-4xl mx-auto">
           {csiInfo.stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary">
-                <Counter to={stat.value} />
-                {stat.symbol}
+            <ScrollAnimator key={index} delay={index * 100}>
+              <div className="text-center">
+                <div className="text-5xl md:text-6xl font-bold text-primary">
+                  <Counter to={stat.value} />
+                  {stat.symbol}
+                </div>
+                <p className="text-muted-foreground mt-2">{stat.label}</p>
               </div>
-              <p className="text-muted-foreground mt-2">{stat.label}</p>
-            </div>
+            </ScrollAnimator>
           ))}
         </div>
 
-        <div className="mb-24">
-          <h3 className="text-3xl md:text-4xl font-headline text-primary text-center mb-8">Our Chapter Activities</h3>
-          <ImageSlideshow images={slideshowImages} />
-        </div>
+        <ScrollAnimator>
+          <div className="mb-24">
+            <h3 className="text-3xl md:text-4xl font-headline text-primary text-center mb-8">Our Chapter Activities</h3>
+            <ImageSlideshow images={slideshowImages} />
+          </div>
+        </ScrollAnimator>
 
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-headline text-primary">Meet the Team</h2>
-          <p className="text-lg text-muted-foreground mt-2 max-w-2xl mx-auto">The driving force behind our club's success, dedicated to fostering a vibrant tech community.</p>
-        </div>
+        <ScrollAnimator>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-headline text-primary">Meet the Team</h2>
+            <p className="text-lg text-muted-foreground mt-2 max-w-2xl mx-auto">The driving force behind our club's success, dedicated to fostering a vibrant tech community.</p>
+          </div>
+        </ScrollAnimator>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {coreMembers.map((member) => (
-            <div
-              key={member.name}
-              className="group relative text-center flex flex-col items-center p-4 rounded-lg transition-all duration-300 hover:bg-primary/10 hover:shadow-2xl hover:shadow-primary/20"
-            >
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
-              <div className="absolute -top-1/2 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/30 rounded-full blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-1000 animate-pulse"></div>
+          {coreMembers.map((member, index) => (
+            <ScrollAnimator key={member.name} delay={index * 100}>
+              <div
+                className="group relative text-center flex flex-col items-center p-4 rounded-lg transition-all duration-300 hover:bg-primary/10 hover:shadow-2xl hover:shadow-primary/20"
+              >
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
+                <div className="absolute -top-1/2 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/30 rounded-full blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-1000 animate-pulse"></div>
 
-              <Avatar className="w-28 h-28 border-4 border-primary/80 shadow-lg transition-transform duration-300 group-hover:scale-110">
-                <Image src="https://placehold.co/112x112.png" alt={member.name} width={112} height={112} data-ai-hint="professional portrait" />
-                <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
-              </Avatar>
-              <div className="mt-4 z-10">
-                <h3 className="text-lg font-headline font-semibold">{member.name}</h3>
-                <p className="text-primary">{member.role}</p>
-                <p className="text-sm text-muted-foreground">{member.department}</p>
+                <Avatar className="w-28 h-28 border-4 border-primary/80 shadow-lg transition-transform duration-300 group-hover:scale-110">
+                  <Image src="https://placehold.co/112x112.png" alt={member.name} width={112} height={112} data-ai-hint="professional portrait" />
+                  <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <div className="mt-4 z-10">
+                  <h3 className="text-lg font-headline font-semibold">{member.name}</h3>
+                  <p className="text-primary">{member.role}</p>
+                  <p className="text-sm text-muted-foreground">{member.department}</p>
+                </div>
               </div>
-            </div>
+            </ScrollAnimator>
           ))}
         </div>
         <div className="mt-16 flex justify-center">
-            <div
-              className="group relative text-center flex flex-col items-center p-4 rounded-lg transition-all duration-300 hover:bg-primary/10 hover:shadow-2xl hover:shadow-primary/20"
-            >
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
-              <div className="absolute -top-1/2 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/30 rounded-full blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-1000 animate-pulse"></div>
+            <ScrollAnimator delay={coreMembers.length * 100}>
+              <div
+                className="group relative text-center flex flex-col items-center p-4 rounded-lg transition-all duration-300 hover:bg-primary/10 hover:shadow-2xl hover:shadow-primary/20"
+              >
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
+                <div className="absolute -top-1/2 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/30 rounded-full blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-1000 animate-pulse"></div>
 
-              <Avatar className="w-28 h-28 border-4 border-primary/80 shadow-lg transition-transform duration-300 group-hover:scale-110">
-                <Image src="https://placehold.co/112x112.png" alt={executiveMember.name} width={112} height={112} data-ai-hint="professional portrait" />
-                <AvatarFallback>{executiveMember.name.charAt(0)}</AvatarFallback>
-              </Avatar>
-              <div className="mt-4 z-10">
-                <h3 className="text-lg font-headline font-semibold">{executiveMember.name}</h3>
-                <p className="text-primary">{executiveMember.role}</p>
-                <p className="text-sm text-muted-foreground">{executiveMember.department}</p>
+                <Avatar className="w-28 h-28 border-4 border-primary/80 shadow-lg transition-transform duration-300 group-hover:scale-110">
+                  <Image src="https://placehold.co/112x112.png" alt={executiveMember.name} width={112} height={112} data-ai-hint="professional portrait" />
+                  <AvatarFallback>{executiveMember.name.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <div className="mt-4 z-10">
+                  <h3 className="text-lg font-headline font-semibold">{executiveMember.name}</h3>
+                  <p className="text-primary">{executiveMember.role}</p>
+                  <p className="text-sm text-muted-foreground">{executiveMember.department}</p>
+                </div>
               </div>
-            </div>
+            </ScrollAnimator>
         </div>
       </div>
     </section>

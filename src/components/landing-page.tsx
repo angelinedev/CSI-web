@@ -11,8 +11,8 @@ export default function LandingPage() {
       <Header />
       <main className="flex-1">
         <RibbonHero />
-        <Events />
         <About />
+        <Events />
         <Contact />
       </main>
       <Footer />
