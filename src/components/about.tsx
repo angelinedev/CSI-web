@@ -70,15 +70,13 @@ export function About() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {csiInfo.cards.map((card, index) => (
-             <ScrollAnimator key={index} delay={index * 100}>
-              <div className="bg-card/80 p-6 rounded-lg shadow-lg flex flex-col items-center text-center h-full">
-                <div className="p-4 bg-primary/10 rounded-full mb-4">
-                  <card.icon className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-headline text-foreground mb-2">{card.title}</h3>
-                <p className="text-muted-foreground text-sm">{card.text}</p>
+            <div key={index} className="bg-card/80 p-6 rounded-lg shadow-lg flex flex-col items-center text-center h-full">
+              <div className="p-4 bg-primary/10 rounded-full mb-4">
+                <card.icon className="w-8 h-8 text-primary" />
               </div>
-            </ScrollAnimator>
+              <h3 className="text-xl font-headline text-foreground mb-2">{card.title}</h3>
+              <p className="text-muted-foreground text-sm">{card.text}</p>
+            </div>
           ))}
         </div>
 

@@ -28,7 +28,7 @@ const events = [
 
 export function Events() {
   return (
-    <section id="events" className="w-full py-16 md:py-24 bg-background">
+    <section id="events" className="w-full py-16 md:py-24 bg-secondary/30">
       <div className="container mx-auto px-4">
         <ScrollAnimator>
         <div className="text-center mb-12">
