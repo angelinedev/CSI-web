@@ -86,12 +86,18 @@ export default {
           '0%, 100%': { transform: 'rotate(0deg)' },
           '50%': { transform: 'rotate(2deg)' },
         },
+        'gradient-bg': {
+          '0%': { 'background-position': '0% 50%' },
+          '50%': { 'background-position': '100% 50%' },
+          '100%': { 'background-position': '0% 50%' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'shine': 'shine 4s ease-in-out infinite',
         'tilt': 'tilt 10s infinite linear',
+        'gradient-bg': 'gradient-bg 15s ease infinite',
       },
     },
   },

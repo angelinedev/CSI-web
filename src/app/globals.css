@@ -73,5 +73,8 @@
   }
   body {
     @apply bg-background text-foreground;
+    background: linear-gradient(-45deg, #0f172a, #0b1120, #0a0a2a, #1a0a2a);
+    background-size: 400% 400%;
+    animation: gradient-bg 15s ease infinite;
   }
 }
