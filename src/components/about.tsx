@@ -1,5 +1,8 @@
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import Image from 'next/image';
+import { ImageSlideshow } from '@/components/image-slideshow';
+import { Counter } from '@/components/counter';
+import { Building, Award, Users, Info } from 'lucide-react';
 
 const coreMembers = [
   { name: 'Mahendra U', role: 'President-CSI', department: 'CSE' },
@@ -15,10 +18,80 @@ const coreMembers = [
 
 const executiveMember = { name: 'Sharan S', role: 'Executive Member- CSI', department: 'CSBS' };
 
+const csiInfo = {
+  title: 'About Computer Society of India',
+  description:
+    'Being closely associated with Students the Society has developed a well-established net-work of “Student Branches” all across the country. CSI has 488 student branches with more than 90,000 Student Volunteers across the nation. The activities conducted for the Students associated with the Society include lecture meetings, seminars, conferences, training programmes, programming contests and practical visits to installations. CSI has a strong Educational Directorate based at Chennai which undertakes activities related to Certification of professionals related to the latest technologies. Its recent initiative of distance education in the Business Domain areas offers technology enabled learning supported by personal counseling & expert advice. In an ever changing environment, CSI offers professional counseling being a great need of the hour. And this is done by being in close contact with it’s young members through various events, conferences, symposia to name a few. CSI regularly organises SEARCC Programming Contest, Alan Turning Quiz, Discover Thinking Project Contest, On-line Programming Contest etc. for the students.',
+  stats: [
+    { value: 15000, label: 'Happy Members', symbol: '+' },
+    { value: 780, label: 'Institutes', symbol: '+' },
+    { value: 25, label: 'Industries', symbol: '+' },
+  ],
+  cards: [
+    {
+      icon: Info,
+      title: 'About CSI',
+      text: 'Computer Society of India (CSI) is the first and largest body of computer professionals in India. It was started on 6 March 1965 by a few computer professionals and has now grown to be the national body representing computer professionals.',
+    },
+    {
+      icon: Users,
+      title: 'What we do',
+      text: 'Having 488 student branches and rooted firmly at 73 different locations, CSI has plans of opening more chapters & activity centers in smaller towns of the country. The idea is to spread the knowledge, and provide opportunities to as many interested as possible.',
+    },
+    {
+      icon: Award,
+      title: 'CSI Awards',
+      text: 'We Recognize Innovations And Indigenous Developments In The Field Of Information Technology In India. CSI Awards Are Instituted To Acknowledge And Motivate Individuals And Organizations Working In The ICT Field.',
+    },
+  ],
+};
+
+const slideshowImages = [
+  { src: 'https://placehold.co/800x600.png', alt: 'CSI College Event 1', hint: 'student presentation' },
+  { src: 'https://placehold.co/800x600.png', alt: 'CSI College Event 2', hint: 'coding workshop students' },
+  { src: 'https://placehold.co/800x600.png', alt: 'CSI College Event 3', hint: 'group photo students' },
+  { src: 'https://placehold.co/800x600.png', alt: 'CSI College Event 4', hint: 'speaker on stage' },
+  { src: 'https://placehold.co/800x600.png', alt: 'CSI College Event 5', hint: 'students networking' },
+];
+
 export function About() {
   return (
     <section id="about" className="w-full py-16 md:py-24 bg-secondary/30">
       <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-headline text-primary mb-4">{csiInfo.title}</h2>
+          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">{csiInfo.description}</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {csiInfo.cards.map((card, index) => (
+            <div key={index} className="bg-card/80 p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
+              <div className="p-4 bg-primary/10 rounded-full mb-4">
+                <card.icon className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-headline text-foreground mb-2">{card.title}</h3>
+              <p className="text-muted-foreground text-sm">{card.text}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 max-w-4xl mx-auto">
+          {csiInfo.stats.map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="text-5xl md:text-6xl font-bold text-primary">
+                <Counter to={stat.value} />
+                {stat.symbol}
+              </div>
+              <p className="text-muted-foreground mt-2">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mb-24">
+          <h3 className="text-3xl md:text-4xl font-headline text-primary text-center mb-8">Our Chapter Activities</h3>
+          <ImageSlideshow images={slideshowImages} />
+        </div>
+
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-headline text-primary">Meet the Team</h2>
           <p className="text-lg text-muted-foreground mt-2 max-w-2xl mx-auto">The driving force behind our club's success, dedicated to fostering a vibrant tech community.</p>
