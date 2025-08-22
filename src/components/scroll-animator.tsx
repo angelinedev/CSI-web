@@ -1,6 +1,7 @@
+
 "use client";
 
-import { useRef, ReactNode } from 'react';
+import React, { useRef, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 import { useIsVisible } from '@/hooks/use-is-visible';
 
@@ -20,18 +21,25 @@ export function ScrollAnimator({
   const ref = useRef<HTMLDivElement>(null);
   const isVisible = useIsVisible(ref);
 
+  // Add the 'is-visible' class to the direct child if the component is visible.
+  const child = React.Children.only(children) as React.ReactElement;
+  const childWithClass = React.cloneElement(child, {
+    className: cn(child.props.className, { 'is-visible': isVisible }),
+  });
+
+
   return (
     <div
       ref={ref}
       className={cn(
-        'transition-all duration-700 ease-in-out',
+        'transition-opacity duration-700 ease-in-out',
         isVisible ? 'opacity-100' : 'opacity-0',
         isVisible ? animationClassName : '',
         className
       )}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      {children}
+      {childWithClass}
     </div>
   );
 }

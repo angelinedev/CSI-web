@@ -24,12 +24,12 @@ export function RibbonHero() {
         </p>
 
         <div className="flex justify-center gap-4 mb-16">
-           <ScrollAnimator animationClassName="animate-fade-in-up group" delay={400}>
+           <ScrollAnimator animationClassName="animate-fade-in-up" delay={400}>
             <Button size="lg" asChild>
               <a href="#events">View Events</a>
             </Button>
           </ScrollAnimator>
-           <ScrollAnimator animationClassName="animate-fade-in-up group" delay={500}>
+           <ScrollAnimator animationClassName="animate-fade-in-up" delay={500}>
             <Button size="lg" variant="outline" asChild>
               <a href="#contact">Contact Us</a>
             </Button>
@@ -38,7 +38,7 @@ export function RibbonHero() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
            <ScrollAnimator animationClassName="animate-fade-in-up group" delay={600}>
-            <Card className="bg-card/80 backdrop-blur-sm border-border/50 md:group-hover:border-primary/50 transition-all duration-500 ease-in-out md:group-hover:shadow-2xl md:group-hover:shadow-primary/10 transform md:group-hover:-translate-y-2">
+            <Card className="bg-card/80 backdrop-blur-sm border-border/50 group-hover:border-primary/50 is-visible:border-primary/50 transition-all duration-500 ease-in-out group-hover:shadow-2xl is-visible:shadow-2xl group-hover:shadow-primary/10 is-visible:shadow-primary/10 transform group-hover:-translate-y-2 is-visible:-translate-y-2">
               <CardContent className="p-6 flex flex-col items-center gap-4">
                 <div className="p-3 bg-primary/10 rounded-full"><Award className="w-8 h-8 text-primary" /></div>
                 <h3 className="text-xl font-headline text-foreground">Chief Guest</h3>
@@ -47,7 +47,7 @@ export function RibbonHero() {
             </Card>
           </ScrollAnimator>
            <ScrollAnimator animationClassName="animate-fade-in-up group" delay={700}>
-            <Card className="bg-card/80 backdrop-blur-sm border-border/50 md:group-hover:border-primary/50 transition-all duration-500 ease-in-out md:group-hover:shadow-2xl md:group-hover:shadow-primary/10 transform md:group-hover:-translate-y-2">
+            <Card className="bg-card/80 backdrop-blur-sm border-border/50 group-hover:border-primary/50 is-visible:border-primary/50 transition-all duration-500 ease-in-out group-hover:shadow-2xl is-visible:shadow-2xl group-hover:shadow-primary/10 is-visible:shadow-primary/10 transform group-hover:-translate-y-2 is-visible:-translate-y-2">
               <CardContent className="p-6 flex flex-col items-center gap-4">
                  <div className="p-3 bg-primary/10 rounded-full"><MapPin className="w-8 h-8 text-primary" /></div>
                 <h3 className="text-xl font-headline text-foreground">Venue</h3>
@@ -56,7 +56,7 @@ export function RibbonHero() {
             </Card>
           </ScrollAnimator>
            <ScrollAnimator animationClassName="animate-fade-in-up group" delay={800}>
-            <Card className="bg-card/80 backdrop-blur-sm border-border/50 md:group-hover:border-primary/50 transition-all duration-500 ease-in-out md:group-hover:shadow-2xl md:group-hover:shadow-primary/10 transform md:group-hover:-translate-y-2">
+            <Card className="bg-card/80 backdrop-blur-sm border-border/50 group-hover:border-primary/50 is-visible:border-primary/50 transition-all duration-500 ease-in-out group-hover:shadow-2xl is-visible:shadow-2xl group-hover:shadow-primary/10 is-visible:shadow-primary/10 transform group-hover:-translate-y-2 is-visible:-translate-y-2">
               <CardContent className="p-6 flex flex-col items-center gap-4">
                 <div className="p-3 bg-primary/10 rounded-full"><Calendar className="w-8 h-8 text-primary" /></div>
                 <h3 className="text-xl font-headline text-foreground">Date & Time</h3>

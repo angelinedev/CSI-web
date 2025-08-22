@@ -70,7 +70,7 @@ export function About() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {csiInfo.cards.map((card, index) => (
             <ScrollAnimator key={index} animationClassName="animate-fade-in-up group">
-              <div className="bg-card/80 p-6 rounded-lg shadow-lg flex flex-col items-center text-center h-full transition-all duration-500 ease-in-out md:group-hover:bg-primary/10 md:group-hover:shadow-2xl md:group-hover:shadow-primary/20">
+              <div className="bg-card/80 p-6 rounded-lg shadow-lg flex flex-col items-center text-center h-full transition-all duration-500 ease-in-out group-hover:bg-primary/10 is-visible:bg-primary/10 group-hover:shadow-2xl is-visible:shadow-2xl group-hover:shadow-primary/20 is-visible:shadow-primary/20">
                 <div className="p-4 bg-primary/10 rounded-full mb-4">
                   <card.icon className="w-8 h-8 text-primary" />
                 </div>
@@ -96,9 +96,9 @@ export function About() {
         </div>
 
         <ScrollAnimator>
-          <div className="mb-24">
+          <div className="mb-24 max-w-2xl mx-auto">
             <h3 className="text-3xl md:text-4xl font-headline text-primary text-center mb-8">Our Chapter Activities</h3>
-            <ImageSlideshow images={slideshowImages} className="max-w-4xl mx-auto" />
+            <ImageSlideshow images={slideshowImages} />
           </div>
         </ScrollAnimator>
 
@@ -111,10 +111,10 @@ export function About() {
         
         <div className="mt-16 flex justify-center mb-16">
            <ScrollAnimator animationClassName="animate-fade-in-up group">
-            <div className="relative text-center flex flex-col items-center p-6 rounded-lg transition-all duration-500 ease-in-out md:group-hover:bg-primary/10 md:group-hover:shadow-2xl md:group-hover:shadow-primary/20 w-full max-w-sm">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
-              <div className="absolute -top-1/2 left-1/2 -translate-x-1/2 w-56 h-56 bg-primary/30 rounded-full blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-1000 animate-pulse"></div>
-              <Avatar className="w-40 h-40 border-4 border-primary/80 shadow-lg transition-transform duration-300 md:group-hover:scale-110">
+            <div className="relative text-center flex flex-col items-center p-6 rounded-lg transition-all duration-500 ease-in-out group-hover:bg-primary/10 is-visible:bg-primary/10 group-hover:shadow-2xl is-visible:shadow-2xl group-hover:shadow-primary/20 is-visible:shadow-primary/20 w-full max-w-sm">
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 is-visible:opacity-100 transition-opacity duration-500 rounded-lg"></div>
+              <div className="absolute -top-1/2 left-1/2 -translate-x-1/2 w-56 h-56 bg-primary/30 rounded-full blur-3xl opacity-0 group-hover:opacity-50 is-visible:opacity-50 transition-opacity duration-1000 animate-pulse"></div>
+              <Avatar className="w-40 h-40 border-4 border-primary/80 shadow-lg transition-transform duration-300 group-hover:scale-110 is-visible:scale-110">
                 <Image src="https://placehold.co/160x160.png" alt={studentCoordinator.name} width={160} height={160} data-ai-hint="professional portrait" />
                 <AvatarFallback>{studentCoordinator.name.charAt(0)}</AvatarFallback>
               </Avatar>
@@ -130,12 +130,12 @@ export function About() {
           {coreMembers.map((member, index) => (
             <ScrollAnimator key={member.name} delay={index * 100} animationClassName="animate-fade-in-up group">
               <div
-                className="relative text-center flex flex-col items-center p-4 rounded-lg transition-all duration-500 ease-in-out md:group-hover:bg-primary/10 md:group-hover:shadow-2xl md:group-hover:shadow-primary/20"
+                className="relative text-center flex flex-col items-center p-4 rounded-lg transition-all duration-500 ease-in-out group-hover:bg-primary/10 is-visible:bg-primary/10 group-hover:shadow-2xl is-visible:shadow-2xl group-hover:shadow-primary/20 is-visible:shadow-primary/20"
               >
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
-                <div className="absolute -top-1/2 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/30 rounded-full blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-1000 animate-pulse"></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 is-visible:opacity-100 transition-opacity duration-500 rounded-lg"></div>
+                <div className="absolute -top-1/2 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/30 rounded-full blur-3xl opacity-0 group-hover:opacity-50 is-visible:opacity-50 transition-opacity duration-1000 animate-pulse"></div>
 
-                <Avatar className="w-28 h-28 border-4 border-primary/80 shadow-lg transition-transform duration-300 md:group-hover:scale-110">
+                <Avatar className="w-28 h-28 border-4 border-primary/80 shadow-lg transition-transform duration-300 group-hover:scale-110 is-visible:scale-110">
                   <Image src="https://placehold.co/112x112.png" alt={member.name} width={112} height={112} data-ai-hint="professional portrait" />
                   <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
                 </Avatar>

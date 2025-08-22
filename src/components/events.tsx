@@ -40,15 +40,15 @@ export function Events() {
           {events.map((event, index) => (
             <ScrollAnimator key={index} delay={index * 100} animationClassName="animate-fade-in-up group">
               <div className="relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-lg blur opacity-0 group-hover:opacity-75 transition duration-1000 animate-tilt"></div>
-                <Card className="relative overflow-hidden group transform md:group-hover:-translate-y-2 transition-transform duration-500 ease-in-out shadow-md md:group-hover:shadow-xl h-full flex flex-col">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-lg blur opacity-0 group-hover:opacity-75 is-visible:opacity-75 transition-all duration-1000 animate-tilt"></div>
+                <Card className="relative overflow-hidden group transform group-hover:-translate-y-2 is-visible:-translate-y-2 transition-transform duration-500 ease-in-out shadow-md group-hover:shadow-xl is-visible:shadow-xl h-full flex flex-col">
                   <CardHeader className="p-0 relative">
                     <Image
                       src={event.image}
                       alt={event.title}
                       width={600}
                       height={400}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                      className="w-full h-48 object-cover group-hover:scale-105 is-visible:scale-105 transition-transform duration-500 ease-in-out"
                       data-ai-hint={event.hint}
                     />
                   </CardHeader>
