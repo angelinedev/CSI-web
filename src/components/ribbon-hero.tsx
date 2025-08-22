@@ -1,125 +1,58 @@
-"use client";
+"use client"
 
-import { useState, useEffect, useRef } from 'react';
-import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
-import { Award, MapPin, Calendar } from 'lucide-react';
-import { Gift } from 'lucide-react';
+import { Award, MapPin, Calendar, Users, Code } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export function RibbonHero() {
-  const [scrolled, setScrolled] = useState(false);
-  const [detailsInView, setDetailsInView] = useState(false);
-  const heroRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Trigger animation slightly before the top of the screen
-      setScrolled(window.scrollY > 50); 
-    };
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // This will trigger the details animation once the hero section is in view
-        if (entry.isIntersecting) {
-          setDetailsInView(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (heroRef.current) {
-      observer.observe(heroRef.current);
-    }
-    
-    window.addEventListener('scroll', handleScroll);
-
-    // Initial check in case the page loads scrolled down
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (heroRef.current) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        observer.unobserve(heroRef.current);
-      }
-    };
-  }, []);
-
   return (
-    <section
-      id="home"
-      ref={heroRef}
-      className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-background"
-    >
-      {/* Inauguration details that are revealed */}
-      <div className={cn(
-          "container mx-auto px-4 text-center transition-all duration-1000 ease-out absolute z-0 pt-24", // Added pt-24
-          scrolled ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-      )}>
-            <h2 className="text-4xl md:text-5xl font-headline text-primary mb-12">Inauguration Details</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <Card className="hover:shadow-xl transition-shadow duration-300 bg-card/80 backdrop-blur-sm">
-                <CardContent className="p-6 flex flex-col items-center gap-4">
-                  <Award className="w-12 h-12 text-accent" />
-                  <h3 className="text-xl font-headline text-foreground">Chief Guest</h3>
-                  <p className="text-muted-foreground">Dr. M. Senthil Kumar, Chairman, CSI-Kancheepuram Chapter</p>
-                </CardContent>
-              </Card>
-              <Card className="hover:shadow-xl transition-shadow duration-300 bg-card/80 backdrop-blur-sm">
-                <CardContent className="p-6 flex flex-col items-center gap-4">
-                  <MapPin className="w-12 h-12 text-accent" />
-                  <h3 className="text-xl font-headline text-foreground">Venue</h3>
-                  <p className="text-muted-foreground">2nd floor auditorium</p>
-                </CardContent>
-              </Card>
-              <Card className="hover:shadow-xl transition-shadow duration-300 bg-card/80 backdrop-blur-sm">
-                <CardContent className="p-6 flex flex-col items-center gap-4">
-                  <Calendar className="w-12 h-12 text-accent" />
-                  <h3 className="text-xl font-headline text-foreground">Date & Time</h3>
-                  <p className="text-muted-foreground">August 26th, 1:00 PM - 3:30 PM</p>
-                </CardContent>
-              </Card>
-            </div>
-            <p className="mt-12 text-lg md:text-2xl font-headline text-primary">Stay Tuned for the Grand Opening!</p>
+    <section id="home" className="relative w-full py-20 md:py-32 lg:py-40 bg-background overflow-hidden">
+      {/* Background shapes */}
+      <div className="absolute top-0 left-0 w-full h-full z-0">
+        <div className="absolute -top-20 -left-20 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
+        <div className="absolute bottom-0 -right-20 w-96 h-96 bg-accent/10 rounded-full filter blur-3xl opacity-40 animate-pulse animation-delay-4000"></div>
       </div>
 
-      {/* Title that appears before ribbon unties */}
-      <div className={cn(
-        "z-20 text-center text-primary-foreground drop-shadow-lg transition-all duration-500 flex flex-col items-center",
-        scrolled ? 'opacity-0 scale-50' : 'opacity-100 scale-100'
-      )}>
-         <div className={cn(
-           "transition-transform duration-1000 ease-in-out",
-           scrolled ? 'rotate-45' : 'rotate-0'
-         )}>
-          <Gift className="w-24 h-24 md:w-32 md:h-32 lg:w-48 lg:h-48" />
-         </div>
-        <h1 className="text-4xl md:text-6xl lg:text-8xl font-headline mt-4">
-            CSI Inauguration 2025
+      <div className="container mx-auto px-4 text-center relative z-10">
+        <h1 className="text-5xl md:text-7xl font-headline text-primary-foreground mb-4">
+          CSI Student Chapter
         </h1>
-      </div>
-      
-      {/* Full-screen ribbon background with shine */}
-      <div className={cn(
-        "absolute inset-0 bg-gradient-to-br from-blue-500 to-indigo-800 z-10 transition-opacity duration-700",
-        scrolled ? 'opacity-0' : 'opacity-100'
-      )}>
-         <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine" />
-      </div>
+        <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          Inauguration 2025
+        </p>
 
-      {/* Ribbon halves that split apart on scroll */}
-      <div className={cn(
-        "absolute h-full w-1/2 top-0 left-0 bg-gradient-to-r from-blue-500 to-indigo-800 z-30 transition-transform duration-1000 ease-in-out overflow-hidden",
-        scrolled ? "-translate-x-full" : "translate-x-0"
-      )}>
-        <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine" />
-      </div>
-      <div className={cn(
-        "absolute h-full w-1/2 top-0 right-0 bg-gradient-to-r from-indigo-800 to-blue-500 z-30 transition-transform duration-1000 ease-in-out overflow-hidden",
-        scrolled ? "translate-x-full" : "translate-x-0"
-      )}>
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine" />
+        <div className="flex justify-center gap-4 mb-16">
+          <Button size="lg" asChild>
+            <a href="#events">View Events</a>
+          </Button>
+          <Button size="lg" variant="outline" asChild>
+             <a href="#contact">Contact Us</a>
+          </Button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <Card className="bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 transform hover:-translate-y-2">
+            <CardContent className="p-6 flex flex-col items-center gap-4">
+              <div className="p-3 bg-primary/10 rounded-full"><Award className="w-8 h-8 text-primary" /></div>
+              <h3 className="text-xl font-headline text-foreground">Chief Guest</h3>
+              <p className="text-muted-foreground text-sm">Dr. M. Senthil Kumar, Chairman, CSI-Kancheepuram Chapter</p>
+            </CardContent>
+          </Card>
+          <Card className="bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 transform hover:-translate-y-2">
+            <CardContent className="p-6 flex flex-col items-center gap-4">
+               <div className="p-3 bg-primary/10 rounded-full"><MapPin className="w-8 h-8 text-primary" /></div>
+              <h3 className="text-xl font-headline text-foreground">Venue</h3>
+              <p className="text-muted-foreground text-sm">2nd floor auditorium</p>
+            </CardContent>
+          </Card>
+          <Card className="bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 transform hover:-translate-y-2">
+            <CardContent className="p-6 flex flex-col items-center gap-4">
+              <div className="p-3 bg-primary/10 rounded-full"><Calendar className="w-8 h-8 text-primary" /></div>
+              <h3 className="text-xl font-headline text-foreground">Date & Time</h3>
+              <p className="text-muted-foreground text-sm">August 26th, 1:00 PM - 3:30 PM</p>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </section>
   );
