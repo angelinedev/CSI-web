@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Logo } from '@/components/logo';
@@ -46,12 +46,12 @@ export function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-2 px-4 py-2">
+        <nav className="hidden md:flex items-center gap-6 px-4 py-2">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="group relative text-sm font-medium transition-colors duration-300 px-4 py-2 text-foreground/80 hover:text-foreground"
+              className="group relative text-base font-medium transition-colors duration-300 px-4 py-2 text-foreground/80 hover:text-foreground"
             >
               {link.label}
               <span className="absolute bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
@@ -69,6 +69,7 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left">
+               <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
               <div className="p-4">
                 <Link href="/" className="flex items-center gap-2 mb-8 font-bold" onClick={handleLinkClick}>
                   <Logo className="h-10 w-10" />

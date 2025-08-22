@@ -3,6 +3,7 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Award, MapPin, Calendar, Users, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ScrollAnimator } from './scroll-animator';
 
 export function RibbonHero() {
   return (
@@ -23,36 +24,46 @@ export function RibbonHero() {
         </p>
 
         <div className="flex justify-center gap-4 mb-16 animate-fade-in-up" style={{animationDelay: '400ms'}}>
-          <Button size="lg" asChild>
-            <a href="#events">View Events</a>
-          </Button>
-          <Button size="lg" variant="outline" asChild>
-             <a href="#contact">Contact Us</a>
-          </Button>
+           <ScrollAnimator animationClassName="animate-fade-in-up group">
+            <Button size="lg" asChild>
+              <a href="#events">View Events</a>
+            </Button>
+          </ScrollAnimator>
+           <ScrollAnimator animationClassName="animate-fade-in-up group" delay={100}>
+            <Button size="lg" variant="outline" asChild>
+              <a href="#contact">Contact Us</a>
+            </Button>
+          </ScrollAnimator>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto animate-fade-in-up" style={{animationDelay: '600ms'}}>
-          <Card className="bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 transform hover:-translate-y-2">
-            <CardContent className="p-6 flex flex-col items-center gap-4">
-              <div className="p-3 bg-primary/10 rounded-full"><Award className="w-8 h-8 text-primary" /></div>
-              <h3 className="text-xl font-headline text-foreground">Chief Guest</h3>
-              <p className="text-muted-foreground text-sm">Dr. M. Senthil Kumar, Chairman, CSI-Kancheepuram Chapter</p>
-            </CardContent>
-          </Card>
-          <Card className="bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 transform hover:-translate-y-2">
-            <CardContent className="p-6 flex flex-col items-center gap-4">
-               <div className="p-3 bg-primary/10 rounded-full"><MapPin className="w-8 h-8 text-primary" /></div>
-              <h3 className="text-xl font-headline text-foreground">Venue</h3>
-              <p className="text-muted-foreground text-sm">2nd floor auditorium</p>
-            </CardContent>
-          </Card>
-          <Card className="bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 transform hover:-translate-y-2">
-            <CardContent className="p-6 flex flex-col items-center gap-4">
-              <div className="p-3 bg-primary/10 rounded-full"><Calendar className="w-8 h-8 text-primary" /></div>
-              <h3 className="text-xl font-headline text-foreground">Date & Time</h3>
-              <p className="text-muted-foreground text-sm">August 26th, 1:00 PM - 3:30 PM</p>
-            </CardContent>
-          </Card>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+           <ScrollAnimator animationClassName="animate-fade-in-up group" delay={200}>
+            <Card className="bg-card/80 backdrop-blur-sm border-border/50 md:group-hover:border-primary/50 transition-all duration-500 ease-in-out md:group-hover:shadow-2xl md:group-hover:shadow-primary/10 transform md:group-hover:-translate-y-2">
+              <CardContent className="p-6 flex flex-col items-center gap-4">
+                <div className="p-3 bg-primary/10 rounded-full"><Award className="w-8 h-8 text-primary" /></div>
+                <h3 className="text-xl font-headline text-foreground">Chief Guest</h3>
+                <p className="text-muted-foreground text-sm">Dr. M. Senthil Kumar, Chairman, CSI-Kancheepuram Chapter</p>
+              </CardContent>
+            </Card>
+          </ScrollAnimator>
+           <ScrollAnimator animationClassName="animate-fade-in-up group" delay={300}>
+            <Card className="bg-card/80 backdrop-blur-sm border-border/50 md:group-hover:border-primary/50 transition-all duration-500 ease-in-out md:group-hover:shadow-2xl md:group-hover:shadow-primary/10 transform md:group-hover:-translate-y-2">
+              <CardContent className="p-6 flex flex-col items-center gap-4">
+                 <div className="p-3 bg-primary/10 rounded-full"><MapPin className="w-8 h-8 text-primary" /></div>
+                <h3 className="text-xl font-headline text-foreground">Venue</h3>
+                <p className="text-muted-foreground text-sm">2nd floor auditorium</p>
+              </CardContent>
+            </Card>
+          </ScrollAnimator>
+           <ScrollAnimator animationClassName="animate-fade-in-up group" delay={400}>
+            <Card className="bg-card/80 backdrop-blur-sm border-border/50 md:group-hover:border-primary/50 transition-all duration-500 ease-in-out md:group-hover:shadow-2xl md:group-hover:shadow-primary/10 transform md:group-hover:-translate-y-2">
+              <CardContent className="p-6 flex flex-col items-center gap-4">
+                <div className="p-3 bg-primary/10 rounded-full"><Calendar className="w-8 h-8 text-primary" /></div>
+                <h3 className="text-xl font-headline text-foreground">Date & Time</h3>
+                <p className="text-muted-foreground text-sm">August 26th, 1:00 PM - 3:30 PM</p>
+              </CardContent>
+            </Card>
+          </ScrollAnimator>
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { useIsVisible } from '@/hooks/use-is-visible';
 
 interface ScrollAnimatorProps {
   children: ReactNode;
@@ -17,51 +17,26 @@ export function ScrollAnimator({
   animationClassName = 'animate-fade-in-up',
   delay = 0,
 }: ScrollAnimatorProps) {
-  const isMobile = useIsMobile();
   const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const isVisible = useIsVisible(ref);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (!isMobile) {
-      setIsVisible(true);
-      return;
+    if (isVisible) {
+      setHasAnimated(true);
     }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            if (ref.current) {
-                observer.unobserve(ref.current);
-            }
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, [isMobile]);
+  }, [isVisible]);
 
   return (
     <div
       ref={ref}
       className={cn(
-        'transition-opacity duration-500',
-        isMobile ? (isVisible ? 'opacity-100' : 'opacity-0') : 'opacity-100',
-        isVisible ? animationClassName : '',
+        'transition-all duration-700 ease-in-out',
+        hasAnimated ? 'opacity-100' : 'opacity-0',
+        hasAnimated ? animationClassName : '',
         className
       )}
-      style={{ animationDelay: `${delay}ms` }}
+      style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
     </div>
