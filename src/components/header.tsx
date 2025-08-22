@@ -54,7 +54,7 @@ export function Header() {
               className="group relative text-sm font-medium transition-colors duration-300 px-4 py-2 text-foreground/80 hover:text-foreground"
             >
               {link.label}
-              <span className="absolute bottom-1 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+              <span className="absolute bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
             </Link>
           ))}
         </nav>
