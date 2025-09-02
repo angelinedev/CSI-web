@@ -8,6 +8,7 @@ To get started, take a look at src/app/page.tsx.
 
 To run this project on your local machine, follow these steps:
 
+
 1.  **Install Dependencies:**
     Open your terminal, navigate to the project directory, and run:
     ```bash
